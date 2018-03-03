@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +17,102 @@
         </array>
     </customFonts>
     <scenes>
+        <!--History-->
+        <scene sceneID="t8Y-Ia-hEJ">
+            <objects>
+                <viewController id="kO4-HC-gOh" customClass="HistoryViewController" customModule="SwiftRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cdr-lA-Vvn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="OD1-CG-nPT" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7sH-n5-Fsa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" rowHeight="112" id="Md3-TE-BWS" customClass="HistoryTableViewCell" customModule="SwiftRadio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="375" height="112"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Md3-TE-BWS" id="1RT-Kw-drN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="albumArt" translatesAutoresizingMaskIntoConstraints="NO" id="OFh-7t-R6r">
+                                                    <rect key="frame" x="15" y="11" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="OFh-7t-R6r" secondAttribute="height" multiplier="1:1" id="IHw-8x-HfK"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vDM-Kn-C9R">
+                                                    <rect key="frame" x="113" y="11" width="247" height="89.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndc-DD-7ew">
+                                                            <rect key="frame" x="0.0" y="0.0" width="247" height="31.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkd-Px-kJv">
+                                                            <rect key="frame" x="0.0" y="39.5" width="247" height="24"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Played on MM-DD-YYYY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aks-i7-FJ4">
+                                                            <rect key="frame" x="0.0" y="71.5" width="247" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vDM-Kn-C9R" firstAttribute="leading" secondItem="OFh-7t-R6r" secondAttribute="trailing" constant="8" id="B3H-UF-DBt"/>
+                                                <constraint firstItem="OFh-7t-R6r" firstAttribute="top" secondItem="1RT-Kw-drN" secondAttribute="topMargin" id="FzM-dm-xjD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vDM-Kn-C9R" secondAttribute="trailing" id="NdV-It-jKk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vDM-Kn-C9R" secondAttribute="bottom" id="Z9J-Mt-7Od"/>
+                                                <constraint firstItem="OFh-7t-R6r" firstAttribute="bottom" secondItem="1RT-Kw-drN" secondAttribute="bottomMargin" id="dxu-pT-bzg"/>
+                                                <constraint firstItem="vDM-Kn-C9R" firstAttribute="top" secondItem="1RT-Kw-drN" secondAttribute="topMargin" id="iaA-e4-BJl"/>
+                                                <constraint firstItem="OFh-7t-R6r" firstAttribute="leading" secondItem="1RT-Kw-drN" secondAttribute="leadingMargin" id="uq8-9A-oUx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1175440177" green="0.11671449239999999" blue="0.1412996352" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="albumImageView" destination="OFh-7t-R6r" id="b5x-QF-u5D"/>
+                                            <outlet property="artistLabel" destination="xkd-Px-kJv" id="64U-mh-a7U"/>
+                                            <outlet property="playDateLabel" destination="aks-i7-FJ4" id="9tH-ss-53v"/>
+                                            <outlet property="songLabel" destination="ndc-DD-7ew" id="E8A-UB-DIM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kO4-HC-gOh" id="xeF-8j-ZY4"/>
+                                    <outlet property="delegate" destination="kO4-HC-gOh" id="53P-3V-P4Y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7sH-n5-Fsa" firstAttribute="top" secondItem="4xR-qq-y0U" secondAttribute="top" id="EQf-iE-5LQ"/>
+                            <constraint firstItem="7sH-n5-Fsa" firstAttribute="leading" secondItem="4xR-qq-y0U" secondAttribute="leading" id="Rib-mU-fA0"/>
+                            <constraint firstItem="7sH-n5-Fsa" firstAttribute="bottom" secondItem="4xR-qq-y0U" secondAttribute="bottom" id="lfw-V0-IFU"/>
+                            <constraint firstItem="7sH-n5-Fsa" firstAttribute="trailing" secondItem="4xR-qq-y0U" secondAttribute="trailing" id="pil-Qf-ird"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4xR-qq-y0U"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="History" id="73L-hz-3Cd"/>
+                    <connections>
+                        <outlet property="tableView" destination="7sH-n5-Fsa" id="zig-YO-UBd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZL-B9-5jr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="727.5" y="-383.5"/>
+        </scene>
         <!--Swift Radio-->
         <scene sceneID="7ik-k3-I0U">
             <objects>
@@ -142,6 +239,11 @@
                         <barButtonItem key="leftBarButtonItem" image="icon-hamburger" id="CEi-nw-1dN">
                             <connections>
                                 <segue destination="61j-j7-6ve" kind="modal" identifier="ShowMenu" id="MJP-ZO-92b"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="History" id="kdL-oy-B9l">
+                            <connections>
+                                <segue destination="kO4-HC-gOh" kind="push" identifier="History" id="07d-wT-2wN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -776,6 +878,7 @@
     </scenes>
     <resources>
         <image name="NowPlayingBars" width="19" height="19"/>
+        <image name="albumArt" width="180" height="180"/>
         <image name="background" width="320" height="568"/>
         <image name="btn-close" width="22" height="22"/>
         <image name="btn-next" width="44" height="44"/>
@@ -792,6 +895,6 @@
         <image name="vol-min" width="11" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2md-Am-VN1"/>
+        <segue reference="Z22-bU-Ytg"/>
     </inferredMetricsTieBreakers>
 </document>
